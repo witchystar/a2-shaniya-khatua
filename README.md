@@ -2,27 +2,40 @@ Assignment 2 - Data Visualization, 5 Ways
 ===
 ![penguins](https://github.com/cs4804-24c/a2-DataVis-5Ways/assets/412089/accc5680-3c77-4d29-9502-d3ff8cd922af)
 ===
+# Altair (Python)
+
+![ggplot2](img/AltairVisual.png)
+
+Start
+
+# D3
+
+![ggplot2](img/D3Visual.png)
+
+Start
+
+# Excel
+
+![ggplot2](img/ExcelVisual)
+
+Start
 
 # R + ggplot2 + R Script
 
 ![ggplot2](img/Rplot.png)
 
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
+Start
 
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
+# Tableau
 
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
+![ggplot2](img/TableauVisual.png)
 
-# d3...
-
-(And so on...)
+Start
 
 
 ## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
+- **IDK**: Start
+- **IDK**: ...
 
 ### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+- **IDK**: Start...
