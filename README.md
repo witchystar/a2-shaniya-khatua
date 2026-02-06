@@ -1,4 +1,5 @@
-Assignment 2 - Data Visualization, 5 Ways  
+Assignment 2 - Data Visualization, 5 Ways 
+===
 ![penguins](https://github.com/cs4804-24c/a2-DataVis-5Ways/assets/412089/accc5680-3c77-4d29-9502-d3ff8cd922af)
 ===
 
