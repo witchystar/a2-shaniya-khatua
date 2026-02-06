@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin Data Viz - D3</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; }
+        .axis-label { font-size: 14px; font-weight: bold; }
+        .dot { stroke: #fff; stroke-width: 0.5px; }
+        .tooltip {
+            position: absolute;
+            padding: 8px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border-radius: 4px;
+            pointer-events: none;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
 
+    <div id="container">
+        <h2 style="text-align: center;">Penguin Flipper Length vs Body Mass</h2>
+        <svg id="viz"></svg>
+    </div>
+
+    <script>
+        // 1. SET UP DIMENSIONS
+        const margin = {top: 40, right: 150, bottom: 60, left: 80},
+              width = 900 - margin.left - margin.right,
+              height = 500 - margin.top - margin.bottom;
+
+        const svg = d3.select("#viz")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // 2. LOAD DATA (Using d3.csv or local data)
+        // For your assignment, use: d3.csv("penglings.csv").then(data => { ... })
+        // I'll use a small sample here so you can see it render immediately:
+        const data = [
+            {species: "Adelie", flipper_length_mm: 181, body_mass_g: 3750, bill_length_mm: 39.1},
+            {species: "Gentoo", flipper_length_mm: 211, body_mass_g: 4500, bill_length_mm: 46.5},
+            {species: "Chinstrap", flipper_length_mm: 195, body_mass_g: 3800, bill_length_mm: 49.5},
+            // ... more data would be loaded from your CSV
+        ];
+
+        // 3. CREATE SCALES
+        const x = d3.scaleLinear()
+            .domain([170, 235]) // Adjusting to match your provided chart range
+            .range([0, width]);
+
+        const y = d3.scaleLinear()
+            .domain([2500, 6500])
+            .range([height, 0]);
+
+        const size = d3.scaleLinear()
+            .domain([30, 60])
+            .range([3, 15]); // Controls the bubble size
+
+        const color = d3.scaleOrdinal()
+            .domain(["Adelie", "Chinstrap", "Gentoo"])
+            .range(["#ff8c00", "#9932cc", "#008b8b"]); // Matches the example colors
+
+        // 4. ADD AXES
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x).ticks(10))
+            .append("text")
+            .attr("class", "axis-label")
+            .attr("x", width/2)
+            .attr("y", 45)
+            .attr("fill", "black")
+            .text("Flipper Length (mm)");
+
+        svg.append("g")
+            .call(d3.axisLeft(y))
+            .append("text")
+            .attr("class", "axis-label")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -height/2)
+            .attr("y", -60)
+            .attr("fill", "black")
+            .text("Body Mass (g)");
+
+        // 5. DRAW CIRCLES
+        svg.selectAll(".dot")
+            .data(data)
+            .enter().append("circle")
+            .attr("class", "dot")
+            .attr("cx", d => x(d.flipper_length_mm))
+            .attr("cy", d => y(d.body_mass_g))
+            .attr("r", d => size(d.bill_length_mm))
+            .style("fill", d => color(d.species))
+            .style("opacity", 0.8);
+
+    </script>
+</body>
+</html>
