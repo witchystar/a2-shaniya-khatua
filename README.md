@@ -24,7 +24,7 @@ Creating the chart in Excel was straightforward because the data was already in 
 
 ![graph](img/Rplot.png)
 
-ggplot2 was the easiest tool for mapping data variables to visual aesthetics due to its "Grammar of Graphics" structure. The difficult part was dealing with R's strict package management, as libraries like readxl had to be manually installed and loaded before the script would run. To get the chart right, I had to use a data manipulation hack by applying as.numeric() to the Bill Length column, as R initially parsed the data as a discrete character string due to formatting in the Excel file. I see this being a go-to tool in the future for any project requiring heavy statistical analysis and publication-quality static charts.
+The ggplot2 package was the easiest tool for mapping data variables to visual aesthetics. The difficult part was dealing with R's strict package management, as libraries like readxl had to be manually installed and loaded before the script would run. To get the chart right, I had to use a data manipulation hack by applying as.numeric() to the Bill Length column, as R initially parsed the data as a discrete character string due to formatting in the Excel file. I see this being a go-to tool in the future for any project requiring heavy statistical analysis and publication-quality static charts.
 
 # Tableau
 
