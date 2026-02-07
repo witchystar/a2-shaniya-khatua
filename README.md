@@ -16,7 +16,7 @@ D3 was undoubtedly the most difficult tool to use because it requires building e
 
 # Excel
 
-![graph](img/ExcelVisual)
+![graph](img/ExcelVisual.png)
 
 Creating the chart in Excel was straightforward because the data was already in a spreadsheet format. However, it was difficult to maintain the design requirements; for example, Excel's default bubble charts are notoriously finicky with axis scaling and legend placement. To get the right chart, I had to use a "formatting hack" by manually setting the axis minimums (170 for X and 2500 for Y) because Excel's default "Auto" setting included too much empty white space. Excel will always be useful in the future for quick, "one-off" visualizations where I don't want to spend time setting up a coding environment.
 
